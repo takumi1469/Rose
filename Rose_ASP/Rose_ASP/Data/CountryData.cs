@@ -2,7 +2,7 @@
 {
     public class CountryData
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string CountryName { get; set; } = string.Empty;
         public string DataType { get; set; } = string.Empty; // "GDP", "Population"
         public int Year { get; set; }
