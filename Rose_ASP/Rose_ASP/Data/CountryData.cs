@@ -1,4 +1,6 @@
-﻿namespace Rose_ASP.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Rose_ASP.Data
 {
     public class CountryData
     {

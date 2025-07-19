@@ -11,8 +11,8 @@ using Rose_ASP.Data;
 namespace Rose_ASP.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250715150629_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20250719203732_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,8 +53,9 @@ namespace Rose_ASP.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CountryId")
-                        .HasColumnType("integer");
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("DataType")
                         .IsRequired()
@@ -68,20 +69,7 @@ namespace Rose_ASP.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CountryId");
-
                     b.ToTable("CountryDatas");
-                });
-
-            modelBuilder.Entity("Rose_ASP.Data.CountryData", b =>
-                {
-                    b.HasOne("Rose_ASP.Data.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
                 });
 #pragma warning restore 612, 618
         }
