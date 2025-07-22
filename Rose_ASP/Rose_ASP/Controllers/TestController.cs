@@ -4,17 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Rose_ASP.Controllers
 {
-    [Route("[controller]")]
+    [Route("api")]
     [ApiController]
     public class TestController : ControllerBase
     {
-        [HttpGet(Name = "Test")]
+        [HttpGet("Test")]
         public string Get()
         {
             return "Hello world";
         }
 
-        [HttpGet(Name = "LoadData")]
+        [HttpGet("LoadData")]
         public string LoadData()
         {
             return "Hello world";
