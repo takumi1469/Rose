@@ -28,10 +28,27 @@ function App() {
 }
 
 const Dashboard = () => {
+
+  const receiveData = () => {
+    fetch('https://localhost:7242/api/PassDataToReact')
+      .then(response => {
+        if (!response.ok) {
+          console.log("Receiving failed");}
+          return response.json();
+        }
+      )
+      .then(response => {
+        console.log(response[29].year)
+      })
+      .catch(error => {
+        alert('Error occurred');
+      });
+  }
+
   return (
   <div className='div-graph w-10/12 bg-blue-400 h-5/12'>
     <h2 className='text-3xl lg:text-5xl'>Graph</h2>
-    <p>test</p>
+    <button className=" bg-blue-950 text-white " onClick={receiveData}>Receive data</button>
   </div>
   );
 }
